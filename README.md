@@ -110,14 +110,17 @@ In reality only the 4 MSB of this value have to be considered.
 
 ### Priority grouping.
 There are also Priority groups and Subpriority groups. https://www.st.com/resource/en/product_training/STM32G4-System-Nested_Vectored_Interrupt_Control_NVIC.pdf
-Priority groups are for premption interrupts. As per schematic below
-![image](https://github.com/jalinei/RMS/assets/22010135/f2063585-9ecf-4ec5-ad6e-d4d126c83a6c)
-Subpriority are for cooperative interrupts order. As per schematic below
-![image](https://github.com/jalinei/RMS/assets/22010135/01a19266-98c5-4a00-a302-e54363b037f4)
+Priority groups are for premption interrupts. As per schematic below  
+
+![image](https://github.com/jalinei/RMS/assets/22010135/f2063585-9ecf-4ec5-ad6e-d4d126c83a6c)  
+
+Subpriority are for cooperative interrupts order. As per schematic below  
+
+![image](https://github.com/jalinei/RMS/assets/22010135/01a19266-98c5-4a00-a302-e54363b037f4)  
+In our RMS case we want preemptive interrupts. By default in stm32 there are 2 bits defining the priority, and two bits defining the subpriority.  
 ![image](https://github.com/jalinei/RMS/assets/22010135/9f05172d-8291-4efd-8122-4aeb6e0a5aa0)
 
-In our RMS case we want preemptive interrupts. By default in stm32 there are 2 bits defining the priority, and two bits defining the subpriority. 
-It does not seem to be the case when using Zephyr. All the 4 bits are used to define Priority and not subpriorities. 
+It does not seem to be the case when using Zephyr. All the 4 bits are used to define Priority and not subpriorities.  
 
 #### Zephyr context
 In a Zephyr application, by default, all priorities are rerouted to Zephyr ISR handlers with a priority level of 
