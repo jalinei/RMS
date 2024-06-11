@@ -1,0 +1,5 @@
+&timer6 {
+    counter {
+        status = okay;
+    };
+};
